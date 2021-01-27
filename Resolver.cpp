@@ -1,7 +1,7 @@
 // TESTING.
 // PROJECT NOT SDK ITS GIDE FOR NN CODERS.
 float new_body_yaw = 0.0f;
-auto diff_yaw = math::angle_difference(player->eye_angles().y, player->anim_state()->goal_feet_yaw;
+auto diff_yaw = math::angle_difference(player->eye_angles().y, player->anim_state()->goal_feet_yaw) -1;
 
 if ( diff_yaw < 2.0f && !new_body_yaw < 0.0f )
 {
