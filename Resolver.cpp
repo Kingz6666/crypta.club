@@ -8,51 +8,46 @@ if (!animstate)
   return;
 
 float new_body_yaw = 0.0f;
-auto diff_yaw = math::angle_difference(player->eye_angles().y, player->anim_state()->goal_feet_yaw) -1;
+auto diff_yaw = math::angle_difference(player->eye_angles().y, player->anim_state()->goal_feet_yaw) > 0 ? 1 : -1;
 
-if ( diff_yaw < 2.0f && !new_body_yaw < 0.0f )
+if ( diff_yaw < 0 && new_body_yaw == 0.0 )
 {
 new_body_yaw = diff_yaw / animstate->pad10[512]; // min body yaw.
 }
 {
 new_body_yaw = diff_yaw / animstate->pad10[516]; // max body yaw.
 }
-
-/*if ( diff_yaw > 58 && diff_yaw == -58 )
+  
+  
+  void AntiFreeStandTarget(player_t* player, float right_damage, float left_damage, float calculate_damage, int static_damage, bool is_damage)
+  {
+   float is_damage_calculate = 0.0f;
+    
+    left_damage = 90.f;
+    right_damage = 90.f;
+    static_damage = 180;
+    is_damage = false;
+    float main_damage = c_autowall::get().calculate_damage_scale(player)
+    
+    static_damage > 0; // ok.
+    
+    if ( calculate_damage )
+    {
+     calculate_damage = static_damage + main_damage < 0;
+    //  is_damage = true;
+    }
+    else
+    {
+     is_damage_calculate  >= main_damage; 
+    }
+    
+    if ( static_damage ) // back
+    {
+     left_damage >= right_damage <= static_damage;
+       is_damage = true;
+    }
+/*else
 {
-return new_body_yaw;
-}
-else
-{
- new_body_yaw =  animstate->goal_feet_yaw;
+ is_damage = true; 
 }*/
-
-if ( animstate->abs_yaw != 0.0 )
-{
-animstate->goal_feet_yaw = diff_yaw / next_side();
-}
-}
-
-void next_side()
-{
-  auto next_side_time = player->m_simulationTime() - player->m_oldsimulationTime();
-  Vector body_yaw_zero = ZERO;
-  
-  if (get_globals()->m_curtime > 2.0f)
-  {
-   next_side_time = get_globals()->m_crutime; // apply switch desync or break stand lower body yaw. 
   }
-  else
-  {
-  next_side_time = player->lower_body_yaw()/* == animstate->max_yaw && !player->lower_body_yaw()*/;
-  }
-  
-/*  if ( get_globals()->m_curtime < 0.0f )
-  {
-    next_side_time > body_yaw_zero; /*player->lower_body_yaw() = 0.0; // static update lby.
-  }
-  else
-  {
-   player->lower_body_yaw() = 0.0; 
-  } */
-}
