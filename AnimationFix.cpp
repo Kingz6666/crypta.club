@@ -8,13 +8,13 @@ void FrameStageNotify(FrameStage* notify)
 
 	for (auto i = 1; i < m_globals()->m_maxclients; i++)
 	{
-		auto e = static_cast<player_t*>(m_entitylist()->GetClientEntity(i));
+		auto e = static_cast<player_t*>(get_list_ent()->GetClientEntity(i));
 
-		if (e == g_ctx.local())
+		if (e == sdk->local())
 			continue;
 
-		if (!valid(i, e))
-			continue;
+		/*if (!valid(i, e))
+			continue; */
 
 		auto time_delta = abs(TIME_TO_TICKS(player->m_flSimulationTime()) - get_global()->m_tickcount);
 
