@@ -12,4 +12,4 @@ float lby_state; // 0x15
 class interpalation_info
 {
 float effect_info; // 0x10
-]
+}
