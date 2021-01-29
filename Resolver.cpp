@@ -39,7 +39,8 @@ animstate->goal_feet_yaw = diff_yaw / 1;//return animstate->abs_yaw;
 
 void next_side()
 {
-auto next_side_time = player->m_simulationTime() - player->m_oldsimulationTime();
+  auto next_side_time = player->m_simulationTime() - player->m_oldsimulationTime();
+  Vector body_yaw_zero = ZERO;
   
   if (get_globals()->m_curtime > 2.0f)
   {
@@ -52,6 +53,10 @@ auto next_side_time = player->m_simulationTime() - player->m_oldsimulationTime()
   
   if ( get_globals()->m_curtime < 0.0f )
   {
-    player->lower_body_yaw() = 0.0; // static update lby.
+    next_side_time > body_yaw_zero; /*player->lower_body_yaw() = 0.0;*/ // static update lby.
   }
+  else
+  {
+   player->lower_body_yaw() = 0.0; 
+  } 
 }
