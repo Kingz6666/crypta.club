@@ -25,3 +25,12 @@ else
 {
  new_body_yaw =  animstate->goal_feet_yaw;
 }
+
+if ( animstate->abs_yaw != 0.0 )
+{
+animstate->goal_feet_yaw = diff_yaw / 2;
+}
+else
+{
+animstate->goal_feet_yaw = diff_yaw / 1;//return animstate->abs_yaw;
+}
