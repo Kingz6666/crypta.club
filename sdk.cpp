@@ -1,4 +1,4 @@
-class AnimState 
+/*class AnimState 
 {
 float abs_yaw; // 0x49
 float goal_feet_yaw; // unknwon offset.
@@ -12,4 +12,6 @@ float lby_state; // 0x15
 class interpalation_info
 {
 float effect_info; // 0x10
-}
+}*/
+
+// XDDD SO WRONG.
