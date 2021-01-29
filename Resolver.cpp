@@ -46,17 +46,17 @@ void next_side()
   {
    next_side_time = get_globals()->m_crutime; // apply switch desync or break stand lower body yaw. 
   }
-  else
+/*  else
   {
    player->lower_body_yaw() == animstate->max_yaw && !player->lower_body_yaw();
-  }
+  } */
   
-  if ( get_globals()->m_curtime < 0.0f )
+/*  if ( get_globals()->m_curtime < 0.0f )
   {
-    next_side_time > body_yaw_zero; /*player->lower_body_yaw() = 0.0;*/ // static update lby.
+    next_side_time > body_yaw_zero; /*player->lower_body_yaw() = 0.0; // static update lby.
   }
   else
   {
    player->lower_body_yaw() = 0.0; 
-  } 
+  } */
 }
