@@ -2,7 +2,8 @@ void server_side::ServerSide(float side)
 {
 if ( fakelags::get().max_choke > 0 )
 {
-fakelags::get().max_choke < 16; // max choke.
+ side = get_globals()->m_curtime;
+fakelags::get().max_choke < 16 && side; // max choke.
 }
 else
 {
