@@ -1,6 +1,7 @@
 // TESTING.
 // PROJECT NOT SDK ITS GIDE FOR NN CODERS.
-
+void ThisResolver::Resolver(player_t* player)
+{
 const auto animstate = player->anim_state();
 
 if (!animstate)
@@ -33,4 +34,24 @@ animstate->goal_feet_yaw = diff_yaw / 2;
 else
 {
 animstate->goal_feet_yaw = diff_yaw / 1;//return animstate->abs_yaw;
+}
+}
+
+void next_side()
+{
+auto next_side_time = player->m_simulationTime() - player->m_oldsimulationTime();
+  
+  if (get_globals()->m_curtime > 2.0f)
+  {
+   next_side_time = get_globals()->m_crutime; // apply switch desync or break stand lower body yaw. 
+  }
+  else
+  {
+   player->lower_body_yaw() == animstate->max_yaw && !player->lower_body_yaw();
+  }
+  
+  if ( get_globals()->m_curtime < 0.0f )
+  {
+    player->lower_body_yaw() = 0.0; // static update lby.
+  }
 }
