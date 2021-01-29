@@ -44,8 +44,8 @@ void next_side()
   }
   else
   {
-   player->lower_body_yaw()/* == animstate->max_yaw && !player->lower_body_yaw()*/;
-  }/
+  next_side_time = player->lower_body_yaw()/* == animstate->max_yaw && !player->lower_body_yaw()*/;
+  }
   
 /*  if ( get_globals()->m_curtime < 0.0f )
   {
