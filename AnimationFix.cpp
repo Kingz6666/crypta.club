@@ -3,10 +3,12 @@ void FrameStageNotify(FrameStage* notify)
   	if (stage != FRAME_NET_UPDATE_END)
 		return;
 
-	if (!g_cfg.ragebot.enable && !g_cfg.legitbot.enabled)
+	if (!g_config.ragebot.enabled)
 		return;
+	/*if (!g_cfg.ragebot.enable && !g_cfg.legitbot.enabled)
+		return;*/
 
-	for (auto i = 1; i < m_globals()->m_maxclients; i++)
+	for (auto i = 1; i < get_global()->m_maxclients; i++)
 	{
 		auto e = static_cast<player_t*>(get_list_ent()->GetClientEntity(i));
 
