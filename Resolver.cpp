@@ -29,12 +29,9 @@ new_body_yaw = diff_yaw / animstate->pad10[516]; // max body yaw.
     is_damage = false;
     float main_damage = c_autowall::get().calculate_damage_scale(player)
     
-    static_damage > 0; // ok.
-    
     if ( calculate_damage )
     {
      calculate_damage = static_damage + main_damage < 0;
-    //  is_damage = true;
     }
     else
     {
@@ -46,8 +43,8 @@ new_body_yaw = diff_yaw / animstate->pad10[516]; // max body yaw.
      left_damage >= right_damage <= static_damage;
        is_damage = true;
     }
-/*else
-{
- is_damage = true; 
-}*/
+    else
+    {
+     m_pCmd->view_angles.y += 180; // back  
+    }
   }
